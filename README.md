@@ -6,7 +6,6 @@
 
 ### 2. Yarn
 
-### 3. Wamp(Windows)
 
 
 ## Running project:
