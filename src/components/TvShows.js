@@ -8,7 +8,9 @@ const API = 'https://api.themoviedb.org/3/tv/top_rated?api_key=6c23e744b19e2d283
 
 function searchingFor(term){
   return function(x){
-    return x.name.toLowerCase().includes(term.toLowerCase()) || !term;
+   if(term.length>2){
+    return x.name.toLowerCase().includes(term.toLowerCase()) || !term;}
+    else{return x.name.toLowerCase();}
   }
 }
 

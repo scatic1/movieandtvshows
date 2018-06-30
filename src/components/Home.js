@@ -7,7 +7,9 @@ const API = 'https://api.themoviedb.org/3/tv/top_rated?api_key=6c23e744b19e2d283
 
 function searchingFor(term){
   return function(x){
-    return x.name.toLowerCase().includes(term.toLowerCase()) || !term;
+   if(term.length>2){
+    return x.name.toLowerCase().includes(term.toLowerCase()) || !term;}
+    else{return x.name.toLowerCase();}
   }
 }
 export class Home extends Component {
@@ -20,6 +22,7 @@ export class Home extends Component {
       isLoading: false,
       error: null,
       term:'',
+      
     }
     this.searchHandler=this.searchHandler.bind(this);
   }
@@ -42,10 +45,9 @@ this.setState({term:event.target.value})
   }
 
 
-
-  
 render() {
    const { term,results, isLoading, error } = this.state;
+   
     if (error) {
       return <p>{error.message}</p>;
     }
@@ -77,8 +79,8 @@ render() {
                                   <h3 className="card-title-center pt-2"><Link to={`/showTvShow/${result.id}`} >{result.name}</Link></h3>                
                                 </div>
                               </div>
-                            </div>
-                         )
+                            </div> 
+                            )
                      }
                   </div>
            </div>

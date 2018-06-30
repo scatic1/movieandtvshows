@@ -7,7 +7,9 @@ const API = "https://api.themoviedb.org/3/movie/top_rated?api_key=6c23e744b19e2d
 
 function searchingFor(term){
   return function(x){
-    return x.title.toLowerCase().includes(term.toLowerCase()) || !term;
+    if(term.length>2){
+    return x.title.toLowerCase().includes(term.toLowerCase()) || !term;}
+    else{return x.title.toLowerCase();}
   }
 }
 class Movies extends Component {
